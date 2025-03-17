@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #6c5ce7, #a8e6cf);
+        }
+        .calculator {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            padding: 20px;
+            width: 300px;
+        }
+        .display {
+            background: #f0f0f0;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: right;
+            font-size: 24px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #f0f0f0;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #e0e0e0;
+        }
+        .operator {
+            background: #6c5ce7;
+            color: white;
+        }
+        .operator:hover {
+            background: #5849c2;
+        }
+        .equals {
+            background: #a8e6cf;
+        }
+        .equals:hover {
+            background: #8cd3b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">0</div>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="setOperator('+')">+</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="setOperator('-')">-</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="setOperator('*')">×</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button class="equals" onclick="calculate()">=</button>
+            <button class="operator" onclick="setOperator('/')">÷</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.querySelector('.display');
+        let firstNumber = '';
+        let operator = '';
+        let waitingForSecondNumber = false;
+
+        function appendNumber(num) {
+            if (waitingForSecondNumber) {
+                display.textContent = num;
+                waitingForSecondNumber = false;
+            } else {
+                display.textContent = display.textContent === '0' ? num : display.textContent + num;
+            }
+        }
+
+        function setOperator(op) {
+            firstNumber = display.textContent;
+            operator = op;
+            waitingForSecondNumber = true;
+        }
+
+        function calculate() {
+            let secondNumber = display.textContent;
+            let result;
+            switch(operator) {
+                case '+':
+                    result = parseFloat(firstNumber) + parseFloat(secondNumber);
+                    break;
+                case '-':
+                    result = parseFloat(firstNumber) - parseFloat(secondNumber);
+                    break;
+                case '*':
+                    result = parseFloat(firstNumber) * parseFloat(secondNumber);
+                    break;
+                case '/':
+                    result = parseFloat(firstNumber) / parseFloat(secondNumber);
+                    break;
+            }
+            display.textContent = result;
+            firstNumber = '';
+            operator = '';
+        }
+
+        function clearDisplay() {
+            display.textContent = '0';
+            firstNumber = '';
+            operator = '';
+            waitingForSecondNumber = false;
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #74b9ff, #a29bfe);
+        }
+        .converter {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #2d3436;
+            margin-bottom: 30px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2d3436;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #dfe6e9;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #dfe6e9;
+            border-radius: 5px;
+            background: white;
+        }
+        .swap-btn {
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 10px auto;
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        .swap-btn:hover {
+            background: #5849c2;
+            transform: rotate(180deg);
+        }
+        .result {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f5f6fa;
+            border-radius: 10px;
+            color: #2d3436;
+        }
+        .rates {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f6fa;
+            border-radius: 10px;
+        }
+        .rates-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .rate-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h1>Конвертер валют</h1>
+        
+        <div class="input-group">
+            <label>Сумма:</label>
+            <input type="number" id="amount" value="1" min="0" step="0.01" oninput="convert()">
+        </div>
+
+        <div class="input-group">
+            <label>Из валюты:</label>
+            <select id="fromCurrency" onchange="convert()">
+                <option value="USD">Доллар США (USD)</option>
+                <option value="EUR">Евро (EUR)</option>
+                <option value="RUB">Российский рубль (RUB)</option>
+                <option value="GBP">Британский фунт (GBP)</option>
+                <option value="JPY">Японская иена (JPY)</option>
+            </select>
+        </div>
+
+        <button class="swap-btn" onclick="swapCurrencies()">↕</button>
+
+        <div class="input-group">
+            <label>В валюту:</label>
+            <select id="toCurrency" onchange="convert()">
+                <option value="RUB">Российский рубль (RUB)</option>
+                <option value="USD">Доллар США (USD)</option>
+                <option value="EUR">Евро (EUR)</option>
+                <option value="GBP">Британский фунт (GBP)</option>
+                <option value="JPY">Японская иена (JPY)</option>
+            </select>
+        </div>
+
+        <div class="result" id="result">
+            1 USD = 75.00 RUB
+        </div>
+
+        <div class="rates">
+            <div class="rates-title">Текущие курсы:</div>
+            <div class="rate-item">
+                <span>1 USD = 75.00 RUB</span>
+                <span>1 EUR = 90.00 RUB</span>
+            </div>
+            <div class="rate-item">
+                <span>1 GBP = 105.00 RUB</span>
+                <span>1 JPY = 0.70 RUB</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Курсы валют (для примера)
+        const rates = {
+            USD: { RUB: 75.00, EUR: 0.85, GBP: 0.73, JPY: 110.00, USD: 1 },
+            EUR: { RUB: 90.00, USD: 1.17, GBP: 0.86, JPY: 129.00, EUR: 1 },
+            RUB: { USD: 0.013, EUR: 0.011, GBP: 0.0095, JPY: 1.47, RUB: 1 },
+            GBP: { RUB: 105.00, USD: 1.37, EUR: 1.16, JPY: 150.00, GBP: 1 },
+            JPY: { RUB: 0.70, USD: 0.009, EUR: 0.0077, GBP: 0.0067, JPY: 1 }
+        };
+
+        function convert() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            
+            const rate = rates[fromCurrency][toCurrency];
+            const result = amount * rate;
+            
+            document.getElementById('result').textContent = 
+                `${amount.toFixed(2)} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
+        }
+
+        function swapCurrencies() {
+            const fromCurrency = document.getElementById('fromCurrency');
+            const toCurrency = document.getElementById('toCurrency');
+            
+            const temp = fromCurrency.value;
+            fromCurrency.value = toCurrency.value;
+            toCurrency.value = temp;
+            
+            convert();
+        }
+
+        // Начальная конвертация
+        convert();
+    </script>
+</body>
+</html> 
