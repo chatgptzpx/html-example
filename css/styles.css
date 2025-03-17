@@ -1,0 +1,111 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+/* Стиль 1: Градиентная кнопка */
+.gradient-button {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Стиль 2: Неоновый текст */
+.neon-text {
+    color: #fff;
+    text-shadow: 0 0 5px #fff,
+                 0 0 10px #fff,
+                 0 0 20px #ff00de,
+                 0 0 30px #ff00de,
+                 0 0 40px #ff00de;
+}
+
+/* Стиль 3: Карточка с тенью */
+.shadow-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Стиль 4: Анимированная рамка */
+.animated-border {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #ff6b6b, #4ecdc4) border-box;
+    border-radius: 5px;
+}
+
+/* Стиль 5: Стеклянный эффект */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Стиль 6: Цветная анимация при наведении */
+.hover-color {
+    transition: all 0.3s ease;
+}
+.hover-color:hover {
+    background-color: #4ecdc4;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Стиль 7: Пульсирующая анимация */
+.pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Стиль 8: Радужный текст */
+.rainbow-text {
+    background: linear-gradient(45deg, 
+        #ff0000, #ff7f00, #ffff00, #00ff00, 
+        #0000ff, #4b0082, #8b00ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Стиль 9: Трехмерная кнопка */
+.button-3d {
+    background: #4ecdc4;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(20px);
+    transition: all 0.3s ease;
+}
+.button-3d:before {
+    content: '';
+    position: absolute;
+    background: #45b7ae;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    transform: translateZ(-20px);
+}
+
+/* Стиль 10: Градиентная рамка */
+.gradient-border {
+    border: 4px solid;
+    border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4) 1;
+} 

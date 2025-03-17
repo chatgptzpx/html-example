@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Примеры</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Руководство по HTML элементам</h1>
+        <nav>
+            <ul>
+                <li><a href="#structure">Структура HTML</a></li>
+                <li><a href="#buttons">Кнопки</a></li>
+                <li><a href="#text">Текст</a></li>
+                <li><a href="#lists">Списки</a></li>
+                <li><a href="#tables">Таблицы</a></li>
+                <li><a href="#forms">Формы</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="structure" class="shadow-card">
+            <h2>Структура HTML документа</h2>
+            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Название страницы&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Содержимое страницы
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <p>Это базовая структура любого HTML документа. Каждый элемент выполняет важную функцию:</p>
+            <ul>
+                <li><code>&lt;!DOCTYPE html&gt;</code> - объявляет версию HTML</li>
+                <li><code>&lt;html&gt;</code> - корневой элемент страницы</li>
+                <li><code>&lt;head&gt;</code> - содержит метаданные и ссылки на ресурсы</li>
+                <li><code>&lt;body&gt;</code> - содержит видимое содержимое страницы</li>
+            </ul>
+        </section>
+
+        <section id="buttons" class="shadow-card">
+            <h2>Кнопки</h2>
+            <h3>Синтаксис:</h3>
+            <pre><code>&lt;button type="тип"&gt;Текст кнопки&lt;/button&gt;</code></pre>
+            
+            <h3>Примеры:</h3>
+            <div class="example-block">
+                <button type="button" class="gradient-button">Обычная кнопка</button>
+                <code>&lt;button type="button" class="gradient-button"&gt;Обычная кнопка&lt;/button&gt;</code>
+            </div>
+
+            <div class="example-block">
+                <button type="submit" class="button-3d">Кнопка отправки</button>
+                <code>&lt;button type="submit" class="button-3d"&gt;Кнопка отправки&lt;/button&gt;</code>
+            </div>
+
+            <div class="example-block">
+                <button type="reset">Кнопка сброса</button>
+                <code>&lt;button type="reset"&gt;Кнопка сброса&lt;/button&gt;</code>
+            </div>
+
+            <div class="example-block">
+                <button disabled>Неактивная кнопка</button>
+                <code>&lt;button disabled&gt;Неактивная кнопка&lt;/button&gt;</code>
+            </div>
+
+            <h3>Атрибуты кнопок:</h3>
+            <ul>
+                <li><code>type="button"</code> - обычная кнопка</li>
+                <li><code>type="submit"</code> - отправка формы</li>
+                <li><code>type="reset"</code> - сброс формы</li>
+                <li><code>disabled</code> - делает кнопку неактивной</li>
+            </ul>
+        </section>
+
+        <section id="text" class="shadow-card">
+            <h2>Текстовые элементы</h2>
+            
+            <div class="example-block">
+                <h3>Заголовки (h1-h6):</h3>
+                <h1>Заголовок h1</h1>
+                <h2>Заголовок h2</h2>
+                <h3>Заголовок h3</h3>
+                <pre><code>
+&lt;h1&gt;Заголовок h1&lt;/h1&gt;
+&lt;h2&gt;Заголовок h2&lt;/h2&gt;
+&lt;h3&gt;Заголовок h3&lt;/h3&gt;
+                </code></pre>
+            </div>
+
+            <div class="example-block">
+                <h3>Параграф и форматирование:</h3>
+                <p>Обычный параграф текста</p>
+                <p><strong>Жирный текст</strong></p>
+                <p><em>Курсив</em></p>
+                <p><mark>Выделенный текст</mark></p>
+                <p class="neon-text">Неоновый текст</p>
+                <p class="rainbow-text">Радужный текст</p>
+                <pre><code>
+&lt;p&gt;Обычный параграф текста&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Жирный текст&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Курсив&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;Выделенный текст&lt;/mark&gt;&lt;/p&gt;
+&lt;p class="neon-text"&gt;Неоновый текст&lt;/p&gt;
+&lt;p class="rainbow-text"&gt;Радужный текст&lt;/p&gt;
+                </code></pre>
+            </div>
+        </section>
+
+        <section id="lists" class="shadow-card">
+            <h2>Списки</h2>
+            
+            <div class="example-block">
+                <h3>Маркированный список (ul):</h3>
+                <ul>
+                    <li>Элемент 1</li>
+                    <li>Элемент 2</li>
+                    <li>Элемент 3</li>
+                </ul>
+                <pre><code>
+&lt;ul&gt;
+    &lt;li&gt;Элемент 1&lt;/li&gt;
+    &lt;li&gt;Элемент 2&lt;/li&gt;
+    &lt;li&gt;Элемент 3&lt;/li&gt;
+&lt;/ul&gt;
+                </code></pre>
+            </div>
+
+            <div class="example-block">
+                <h3>Нумерованный список (ol):</h3>
+                <ol>
+                    <li>Первый пункт</li>
+                    <li>Второй пункт</li>
+                    <li>Третий пункт</li>
+                </ol>
+                <pre><code>
+&lt;ol&gt;
+    &lt;li&gt;Первый пункт&lt;/li&gt;
+    &lt;li&gt;Второй пункт&lt;/li&gt;
+    &lt;li&gt;Третий пункт&lt;/li&gt;
+&lt;/ol&gt;
+                </code></pre>
+            </div>
+        </section>
+
+        <section id="tables" class="shadow-card">
+            <h2>Таблицы</h2>
+            <h3>Структура таблицы:</h3>
+            <pre><code>
+&lt;table&gt;
+    &lt;thead&gt;              // Шапка таблицы
+        &lt;tr&gt;            // Строка
+            &lt;th&gt;...&lt;/th&gt;   // Заголовок
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;              // Тело таблицы
+        &lt;tr&gt;            // Строка
+            &lt;td&gt;...&lt;/td&gt;   // Ячейка
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+            </code></pre>
+
+            <h3>Пример таблицы:</h3>
+            <table border="1" class="example-table">
+                <thead>
+                    <tr>
+                        <th>Заголовок 1</th>
+                        <th>Заголовок 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ячейка 1</td>
+                        <td>Ячейка 2</td>
+                    </tr>
+                    <tr>
+                        <td>Ячейка 3</td>
+                        <td>Ячейка 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="forms" class="shadow-card">
+            <h2>Формы</h2>
+            <h3>Структура формы:</h3>
+            <pre><code>
+&lt;form action="URL" method="post"&gt;
+    &lt;label&gt;...&lt;/label&gt;        // Метка поля
+    &lt;input type="..."&gt;        // Поле ввода
+    &lt;textarea&gt;...&lt;/textarea&gt;  // Многострочное поле
+    &lt;button type="submit"&gt;    // Кнопка отправки
+&lt;/form&gt;
+            </code></pre>
+
+            <h3>Пример формы:</h3>
+            <form action="#" method="post" class="example-form">
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" placeholder="Введите имя">
+                    <code>&lt;input type="text" placeholder="Введите имя"&gt;</code>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Введите email">
+                    <code>&lt;input type="email" placeholder="Введите email"&gt;</code>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Введите сообщение"></textarea>
+                    <code>&lt;textarea rows="4" placeholder="Введите сообщение"&gt;&lt;/textarea&gt;</code>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="subscribe"> Подписаться на рассылку
+                    </label>
+                    <code>&lt;input type="checkbox"&gt;</code>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="gradient-button">Отправить</button>
+                </div>
+            </form>
+
+            <h3>Типы полей ввода:</h3>
+            <ul>
+                <li><code>type="text"</code> - текстовое поле</li>
+                <li><code>type="email"</code> - поле для email</li>
+                <li><code>type="password"</code> - поле для пароля</li>
+                <li><code>type="number"</code> - числовое поле</li>
+                <li><code>type="checkbox"</code> - флажок</li>
+                <li><code>type="radio"</code> - переключатель</li>
+                <li><code>type="file"</code> - загрузка файла</li>
+                <li><code>type="date"</code> - выбор даты</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 HTML Примеры</p>
+    </footer>
+
+    <style>
+        .example-block {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .example-block code {
+            display: block;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 3px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .example-table th,
+        .example-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        pre code {
+            display: block;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</body>
+</html> 
